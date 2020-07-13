@@ -10,7 +10,6 @@ export const makeThrottle = (interval: number): Throttle => {
         if (!process) {
             setTimeout(() => {
                 if (process) {
-                    console.log('throttle');
                     process();
                     process = undefined;
                 }
