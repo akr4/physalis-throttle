@@ -40,3 +40,13 @@ test('flush', () => {
   t.flush();
   expect(data).toEqual(2);
 });
+
+test('ensure throttled', () => {
+  let data = 0;
+
+  const t = makeThrottle(1000);
+
+  t.push(() => (data = 1));
+
+  expect(data).toEqual(0);
+});
