@@ -1,1 +1,1 @@
-export {makeThrottle, Throttle} from './throttle';
+export { makeThrottle, Throttle } from './throttle';

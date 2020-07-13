@@ -2,7 +2,7 @@
 
 Do tasks by throttling.
 
-## Installation 
+## Installation
 
 Add the following line to the `.npmrc` in your project root.
 
@@ -24,19 +24,31 @@ import { makeThrottle } from '@akr4/physalis-throttle';
 const throttle = makeThrottle(1000);
 
 // push tasks
-throttle.push(() => { console.log(1) });
-throttle.push(() => { console.log(2) });
-throttle.push(() => { console.log(3) });
+throttle.push(() => {
+  console.log(1);
+});
+throttle.push(() => {
+  console.log(2);
+});
+throttle.push(() => {
+  console.log(3);
+});
 // >> 3
 
-throttle.push(() => { console.log(1) });
+throttle.push(() => {
+  console.log(1);
+});
 throttle.flush();
 // >> 1
 
-throttle.push(() => { console.log(2) });
+throttle.push(() => {
+  console.log(2);
+});
 throttle.flush();
 // >> 2
 
-throttle.push(() => { console.log(3) });
+throttle.push(() => {
+  console.log(3);
+});
 // >> 3
 ```

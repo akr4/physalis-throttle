@@ -1,32 +1,32 @@
 export type Throttle = {
-    push: (f: () => void) => void;
-    flush: () => void;
+  push: (f: () => void) => void;
+  flush: () => void;
 };
 
 export const makeThrottle = (interval: number): Throttle => {
-    let process: (() => void) | undefined;
+  let process: (() => void) | undefined;
 
-    const push = (f: () => void) => {
-        if (!process) {
-            setTimeout(() => {
-                if (process) {
-                    process();
-                    process = undefined;
-                }
-            }, interval);
-        }
-        process = f;
-    };
-
-    const flush = () => {
+  const push = (f: () => void) => {
+    if (!process) {
+      setTimeout(() => {
         if (process) {
-            process();
-            process = undefined;
+          process();
+          process = undefined;
         }
-    };
+      }, interval);
+    }
+    process = f;
+  };
 
-    return {
-        push,
-        flush,
-    };
+  const flush = () => {
+    if (process) {
+      process();
+      process = undefined;
+    }
+  };
+
+  return {
+    push,
+    flush,
+  };
 };
