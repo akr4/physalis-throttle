@@ -1,7 +1,7 @@
 {
   "name": "@akr4/physalis-throttle",
   "description": "Do tasks by throttling.",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "devDependencies": {
     "@types/jest": "^26.0.0",
     "@typescript-eslint/eslint-plugin": "^3.2.0",
