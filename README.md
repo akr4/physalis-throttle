@@ -52,3 +52,12 @@ throttle.push(() => {
 });
 // >> 3
 ```
+
+## Release procedure
+
+1. Bump version
+2. Publish
+
+```bash
+npm publish
+```
